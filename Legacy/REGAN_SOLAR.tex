@@ -1,0 +1,29 @@
+
+\subsubsection{Solar Power}
+\indent The National Oceanic and Atmospheric Administration (NOAA) is a scientific agency that is a part of the U.S. department of commerce. Through the Earth System Research Laboratory, NOAA offers datasets for various climate properties such as humidity, temperature, cloud coverage and solar radiation. Data for the downward short wave radiation flux, (DSWRF) is available for download for the past 65 years \cite{Kistler01thencepncar}. These files can be imported into MATLAB and refined for the values relevant to a desired location based on its respective longitude and latitude as the data is recorded for all locations around the world. To obtain more accurate data, measurements for the daily mean taken every six hours were uploaded, rather than using data collected once every day. A plot of the four times daily mean power versus the average daily power for the year 2010 are seen in Figure \ref{fig:SOLAR_avg_power} below. By using solar data for the past 6 years, the yearly trend for the change of season becomes clear and is more accurate than using one year of data.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width = 6in]{Mean_Power_2010}
+\caption{\textit{Plot of average daily power for Newport, Rhode Island}}
+\label{fig:SOLAR_avg_power}
+\end{figure}
+\indent The theoretical maximum daily power is around 300 Watts per square meter, where as the minimum average power dips below 100 Watts per square meter. It is important to note that these values will decrease dramatically in the second phase of the project taking into account the efficiency and surface area of the desired solar panel. \\
+\indent From the daily average solar flux taken every six hours, MATLAB plots the solar flux in units of Watts per square meter versus time in units of days. By taking the mean of the four data points per day, an array of 365 data points for average power per day is obtained. Cumulatively integrating the daily average power yields the average energy per day for a given year, solar energy is in units of Watt hours per square meter. Ultimately, the total energy averaged over all six years gives a more confident set of values. \\
+\indent Calculating the standard deviation for average daily energy for January through December of all six years will allow for a greater level of confidence. By finding the first and second standard deviation above and below the mean daily energy, the percent confidence increases. In other words, using the first and second standard deviation results in a $68.2\%$ and $95\%$ confidence, respectively. This statistical analysis is illustrated in Figure \ref{fig:SOLAR_Avg6}, where the mean daily energy as well as the first and second standard deviation are plotted. Various markers for each individual data point over all six years are identified in the legend.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \linewidth]{Avg_Energy_6Years.eps}
+\caption{\textit{Plot displaying the average energy for 6 years.}}
+\label{fig:SOLAR_Avg6}
+\end{figure}
+
+\indent To ensure that the sensor package has access to ample power, an analysis of the worst-case scenario will be carried out. This is a scenario where there are multiple days in a row with poor sun coverage as opposed to a single day with complete overcast. To better visualize the trend of a year, the mean daily energy for six years was passed through a 7 point moving average filter. This filter takes into account three days before and three days after the data point and averages them. Essentially this produces a smoother curve as seen in Figure \ref{fig:SOLAR_Move_Avg} \\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{SevenDay_Moving_Average_Filter.eps}
+\caption{\textit{The 6 years of data was averaged and then smoothed using a 7 day moving average filter.}}
+\label{fig:SOLAR_Move_Avg}
+\end{figure}
