@@ -13,8 +13,10 @@ to the sampling state.\\
 
 In this application, 200 Hz was decided to be the target sampling
 rate. The program waited for an interrupt then the system time 
-has reached a user-defined time. When the signal was received, the application
-proceeded to collect data from the peripheral sensors. For
+has reached a user-defined time. This is important because every 
+sensor package waited for the same time and they sampled  
+at the same instant (accurate to a millisecond). When the signal was received, 
+the application proceeded to collect data from the peripheral sensors. For
 each sample during the sampling duration, data was collected
 from the ADC via I2C. The data structure was appended over the sampling entire
 sampling period and passed as a return from the state.
