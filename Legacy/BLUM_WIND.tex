@@ -1,13 +1,44 @@
 \subsubsection{Wind Power}
-\indent The site of the Newport Bridge is a suitable location for a wind turbine because the bridge is high off the ground and there are no sounding objects to block the wind. The process of harvesting energy from the wind is simple; wind turns a generator to create electricity. The electricity is then stored in batteries. In addition to the wind turbine a solar panel will be installed to supplement power generation. Due to cost and space limitations, the minimum quantity of batteries required to keep the sensor package running will be used. The sensor package will require a continuous power source in order to collect data. The goal is to collect five years of data from the sensor package. \\   
-\indent A NOAA Station  (National Oceanic and Atmospheric Administration) located about 500 meters north of the bridge in Newport, RI collects data continuously every 6 minutes, corresponding to about 87,000 data points a year. The anemometer (wind speed gauge) is approximately 6.4 meters off the ground. \\
-\indent For the wind speed to be accurate at the height of where the turbine would be placed on the bridge, the wind data has to be reconfigured. This is done with the wind profile power law: 
+\indent The site of the Newport Bridge is a suitable location for a
+wind turbine because the bridge is high off the ground and there
+are no sounding objects to block the wind. The process of
+harvesting energy from the wind is simple; wind turns a generator
+to create electricity. The electricity is then stored in
+batteries. In addition to the wind turbine a solar panel will
+be installed to supplement power generation. Due to cost and
+space limitations, the minimum quantity of batteries required
+to keep the sensor package running will be used. The sensor
+ package will require a continuous power source in order to
+  collect data. The goal is to collect five years of data
+   from the sensor package. \\   
+   
+\indent A NOAA Station  (National Oceanic and Atmospheric
+Administration) located about 500 meters north of the bridge in
+Newport, RI collects data continuously every 6 minutes,
+corresponding to about 87,000 data points a year. The anemometer
+(wind speed gauge) is approximately 6.4 meters off the ground.\\    
+\indent For the wind speed to be accurate at the height of where the
+turbine would be placed on the bridge, the wind data has to be
+reconfigured. This is done with the wind profile power law: 
 
 \begin{equation}
 U_{2} = U_{1}(\frac{Z_{2}}{Z_{1}})^\alpha
 \label{eqn:WIND_Power_Law}
 \end{equation}
-Where $U_{2}$ the wind is speed at height $Z_{2}$, $U_{1}$ and is the wind speed at height $Z_{1}$. $Z_{2}$ is the computed height and is the reference height. is the power law exponent. The power law exponent is a function of the local climatology, topography, surface roughness, environmental conditions, meteorological lapse rate, and weather stability \cite{Zekai}. This makes the wind profile to be logarithmic and not linear. Studies have shown that the power law exponent to be .14 or 1/7 for most sites. The wind data from NOAA, Figure \ref{fig:WIND_6.4}, was put into MATLAB and the wind data for the corresponding height of 50 meters, Figure \ref{fig:WIND_50}, was calculated. The average wind speed at the NOAA station is $4.38 (m/s)$ and the average speed at the corresponding height of 50 meter was $5.83(m/s)$.
+Where $U_{2}$ the wind is speed at height $Z_{2}$, $U_{1}$ and is
+the wind speed at height $Z_{1}$. $Z_{2}$ is the computed height
+and is the reference height. is the power law exponent. The power
+law exponent is a function of the local climatology, topography,
+surface roughness, environmental conditions, meteorological
+lapse rate, and weather stability \cite{Zekai}. This makes the
+wind profile to be logarithmic and not linear. Studies have
+shown that the power law exponent to be .14 or 1/7 for most
+sites. The wind data from NOAA, Figure \ref{fig:WIND_6.4},
+ was put into MATLAB and the wind data for the corresponding
+  height of 50 meters, Figure \ref{fig:WIND_50}, was
+   calculated. The average wind speed at the NOAA station is
+    $4.38 (m/s)$ and the average speed at the corresponding
+     height of 50 meter was $5.83(m/s)$.
 
 \begin{figure}[H]
 \centering
@@ -23,7 +54,10 @@ Where $U_{2}$ the wind is speed at height $Z_{2}$, $U_{1}$ and is the wind speed
 \label{fig:WIND_50}
 \end{figure}
 
-\indent The computed wind data was then analyzed and a probability density graph of the wind speed what created in MATLAB. The probability density graph, figure 3, shows the probability of each wind speed.
+\indent The computed wind data was then analyzed and a probability
+density graph of the wind speed what created in MATLAB. The
+probability density graph, figure 3, shows the probability of each
+wind speed.
 
 \begin{figure}[H]
 \centering
@@ -32,12 +66,35 @@ Where $U_{2}$ the wind is speed at height $Z_{2}$, $U_{1}$ and is the wind speed
 \label{fig:WIND_PDF}
 \end{figure}
 
-\indent The probability density graph gives a more accurate calculation of the power output. This is because the equation for power is:
+\indent The probability density graph gives a more accurate
+calculation of the power output. This is because the equation for
+power is:
 
 \begin{equation}
 Power = \frac{A_{S} \times A_{D} \times E \times V^{3}}{2}
 \end{equation}
 
-\indent Where $A_{S}$ is the swept area of the turbine blade, $A_{D}$ is the air density and $E$ is the efficiency of the turbine. ($0.5 \times V^{3}$) is velocity participating in a calculation of Kinetic Energy to produce the mass of air on the turbine \cite{arcGIS:2013}. Since Velocity is cubed in this equation, doubling the wind speed would increase the power output by eight. This is why a probability density graph is better than just a yearly average. Also if the radius of the turbine is doubled the power output would increase by four. \\
-\indent The wind turbine that is under consideration for this package has a radius of .127 meters. This gives a swept area of approximately .051 m2. The maximum efficiency of any wind turbine can only be $59\%$ but this wind turbine is closer to $40\%$ \cite{Windpower}\\
-\indent With the power equation, turbine efficiency, and the probability density graph, an approximation can be made about the power output from the NOAA data. The annual output with this turbine at this location was calculated to be around 37,000 Watt hours. Without knowing exactly what instruments and draw that the sensor package is going to have, there is no definite answer that the purposed turbine will be able to power this package by itself. 
+\indent Where $A_{S}$ is the swept area of the turbine blade,
+$A_{D}$ is the air density and $E$ is the efficiency of the
+turbine. ($0.5 \times V^{3}$) is velocity participating in a
+calculation of Kinetic Energy to produce the mass of air on the
+turbine \cite{arcGIS:2013}. Since Velocity is cubed in this
+equation, doubling the wind speed would increase the power
+output by eight. This is why a probability density graph is
+better than just a yearly average. Also if the radius of the
+turbine is doubled the power output would increase by four.
+ \\
+\indent The wind turbine that is under consideration for this
+package has a radius of .127 meters. This gives a swept area of
+approximately .051 m2. The maximum efficiency of any wind turbine
+can only be $59\%$ but this wind turbine is closer to $40\%$
+\cite{Windpower}\\
+
+\indent With the power equation, turbine efficiency, and the
+probability density graph, an approximation can be made about the
+power output from the NOAA data. The annual output with this
+turbine at this location was calculated to be around 37,000 Watt
+hours. Without knowing exactly what instruments and draw that
+the sensor package is going to have, there is no definite
+answer that the purposed turbine will be able to power this
+package by itself. 
