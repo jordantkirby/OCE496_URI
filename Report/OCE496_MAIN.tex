@@ -1,0 +1,101 @@
+\documentclass[12pt,doublespace]{report}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage{setspace}
+\usepackage{abstract}
+%\usepackage{grffile}
+\usepackage{pdfpages}
+\usepackage{lscape}
+\usepackage{authblk}
+
+\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead[L]{\today}
+	\fancyfoot{}
+	\fancyhead[C]{OCE 496 Section 2}
+	\fancyhead[R]{\thepage}
+
+
+\title{\vspace{-5mm}
+	\fontsize{20pt}{10pt}\selectfont
+	Embedded Wireless Sensor Design for Long Term Structural Health Monitoring
+}
+		
+\author[2]{Christopher Bessin}	
+\author[1]{Patrick Blum}
+\author[1]{Matthew P. Iannucci}
+\author[1]{Jordan T. Kirby}
+\author[1]{Zachary McIntosh}
+\author[2]{Elizabeth L. Paul}
+\author[1]{Michael A. Regan}
+\author[2]{Justin W. Skenyon}
+\author[1]{Charles J. Wesley}
+\author[1]{Samuel D. Wiley}
+
+\affil[1]{Finite Element Modelling}
+\affil[2]{Instrumentation Development}
+\date{\normalsize\vspace{-3mm}\today}
+
+
+
+\begin{document}
+\maketitle
+
+%Signature Block
+
+\textit{I have read this paper in its entirety and approve it for submission.}
+\vspace{1.5cm}
+\begin{centering}
+
+\noindent\begin{tabular}{ll}
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Christopher Bessin & Date\\[4ex]% adds space between the two sets of signatures
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Patrick Blum & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Matthew P. Iannucci & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Jordan T. Kirby & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Zachary McIntosh & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Elizabeth L. Paul & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Michael A. Regan & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Justin W. Skenyon & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Charles J. Wesley & Date\\[4ex]
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Samuel D. Wiley & Date\\[4ex]
+\end{tabular}
+\end{centering}
+
+
+\include{ABSTRACT}			%Using 'Include' so that Abstract gets its own page
+\input{ACKNOWLEDGMENTS}		%Using 'Input' so that Acknowldegements does not get its own page
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter{Introduction}
+
+\chapter{Instrumentation Package}
+
+\chapter{Finite Element Modeling (FEM)}
+
+\chapter{Data Collection}
+
+\chapter{Data Analysis}
+
+\chapter{Future Development}
+
+\chapter{Conclusion}
+
+
+\end{document}

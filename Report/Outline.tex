@@ -1,0 +1,166 @@
+\documentclass[twoside,11pt]{report}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{pdfpages}
+\usepackage{lscape}
+\usepackage{appendix}
+% ------
+% Fonts and typesetting settings
+\linespread{1.0} % Palatino needs more space between lines
+\usepackage{microtype}
+% ------
+% Page layout
+\usepackage[hmarginratio=1:1,right = 1.125in,top=1in,columnsep=7.5mm]{geometry}
+\usepackage[font=it]{caption}
+\usepackage{paralist}
+\usepackage{multicol}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+  
+  \makeatletter
+  \newenvironment{tablehere}
+    {\def\@captype{table}}
+    {}
+  
+  \newenvironment{figurehere}
+    {\def\@captype{figure}}
+    {}
+  \makeatother
+
+% ------
+% Lettrines
+\usepackage{lettrine}
+% ------
+% Abstract
+\usepackage{abstract}
+	\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+	\renewcommand{\abstracttextfont}{\normalfont\small\itshape}
+% ------
+% Titling (section/subsection)
+\usepackage{titlesec}
+%\renewcommand\thesection{\Roman{section}}
+%\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{}
+% ------
+% Header/footer
+\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead[L]{\today}
+	\fancyfoot{}
+	\fancyhead[C]{OCE 496: Senior Design II}
+	\fancyhead[R]{\thepage}
+% ------
+
+% Insertting Code
+% http://www.mathworks.com/matlabcentral/fileexchange/8015-m-code-latex-package
+%\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+% Bibliography
+\usepackage[round]{natbib}
+%
+% Clickable URLs (optional)
+\usepackage{hyperref}
+% ------
+% Maketitle metadata
+\title{
+	\fontsize{20pt}{10pt}\selectfont
+	\textbf{OCE 496: Senior Design II\\ \fontsize{16}{10}\selectfont\textbf{-Outline-}}
+	}	
+\author{%
+	\large
+	\textsc{}\\
+	\normalsize{}\\
+%	\thanks{Template by \href{http://www.howtotex.com}{howtoTeX.com}} \\[2mm]
+	\normalsize	University of Rhode Island\\
+	\normalsize Kingston, Rhode Island\\
+%	\normalsize	\href{mailto:frits@howtoTeX.com}{frits@howtoTeX.com}
+	}
+	
+\date{\normalsize\vspace{-3mm}\today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Introduction}
+	\section{Objectives}
+		\subsection{Phase One}
+		\subsection{Phase Two}
+	\section{Layout}
+	
+\chapter{Instrumentation Package}
+	\section{Introduction}
+	\section{Microprocessor}
+		\subsection{Necessary Specifications}
+		\subsection{Platform Options}
+		\subsection{Final Platform}
+	\section{Sensors}
+		\subsection{Accelerometer}
+			\subsubsection{Necessary Specifications}
+			\subsubsection{Sensor Options}
+			\subsubsection{Sensor Selection}
+		\subsection{Strain Gauge}
+			\subsubsection{Necessary Specifications}
+			\subsubsection{Sensor Options}
+			\subsubsection{Sensor Selection}
+		\subsection{GPS Receiver}			
+			\subsubsection{Necessary Specifications}
+			\subsubsection{Sensor Options}
+			\subsubsection{Sensor Selection}
+		\subsection{Analog to Digital Converter}
+			\subsubsection{Necessary Specifications}					
+			\subsubsection{Platform Options}
+	\section{Electronics Design}
+			\subsection{Circuitry}
+			\subsection{Printed Circuit Board}
+	\section{Software Design}
+	\section{Package Power}
+		\subsection{Power Budget}
+		\subsection{Energy Scavenging Potential}
+			\subsubsection{Wind Potential}
+			\subsubsection{Solar Potential}
+		\subsection{Battery Selection}
+\chapter{Finite Element Model (FEM)}
+	\section{Introduction}
+		\subsection{Background of Claiborne Pell Bridge}
+		\subsection{Introduction of FEM}
+	\section{Abaqus FEM Verification}
+		\subsection{L Beam Analysis}
+	\section{Claiborne Pell Bridge Model}
+		\subsection{Modeling Large Suspension Bridges}
+		\subsection{Model Process}
+		\subsection{Limitations of Abaqus FEM}
+\chapter{Data Collection}
+	\section{Phase One Data Collection}
+		\subsection{6g Tri-Axial Accelerometer Data}
+	\section{Phase Two Data Collection}
+		\subsection{6g Tri-Axial Accelerometer Data}
+		\subsection{1.5g Tri-Axial Accelerometer Data}
+\chapter{Data Analysis}
+	\section{Phase One Data Analysis}
+		\subsection{Comparison of Preliminary Abaqus Model and Preliminary Data}
+	\section{Phase Two Data Analysis}
+		\subsection{Comparison of Developed Abaqus Model with Literature}
+		\subsection{Comparison of Developed Abaqus Model with Developed Abaqus Model}
+\chapter{Future Development}
+	\section{Instrumentation}
+		\subsection{Integration of Strain Gauge}
+		\subsection{Wireless Transmission}
+		\subsection{GPS Time Synchronization}
+		\subsection{Package Assembly}
+			\subsubsection{Fabrication of Circuit Board}
+			\subsubsection{Battery Integration}
+			\subsubsection{Package Enclosure}
+			\subsubsection{Power Management}
+			\subsubsection{Package Location}
+	\section{FEM}
+		\subsection{Model Improvements}
+		\subsection{Dynamic Loading}
+\chapter{Conclusion}
+	
+\end{document}
