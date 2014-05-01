@@ -1,11 +1,22 @@
 \section{Introduction}
-\indent A finite element model considers a system and divides it into finite elements and applies material structural properties. The physical response of the structure to an applied loading is added to the initial configuration of the structure. Abaqus is a computer software which calculates approximate finite element solutions for displacements, deformation, stresses, forces, etc. while maintaining force and momentum equilibrium. The state of the model is updated throughout the analysis steps and the effects of the previous step are included in the response of each new step. \\
-\indent By completing a finite element model of the simply supported beams approximate modal responses of the beams will indicate the best locations for the sensor package. For the two simply supported beams the modal shapes are trivial, however, the modal response for a complex structure, like the Newport bridge, anticipating modal response is near impossible with hand calculations. \\
-\indent Abaqus provides multiple ways to model a particular structure. When modeling the Newport Bridge it will be necessary to use the physical properties, such as length and profile, rather than physical properties, such as moment of inertia, to model quickly. To ensure that Abaqus is calculating moment of inertia as anticipated, analytical solutions can be compared with the results modal frequencies of the Abaqus model. Abaqus allows for two different options of modeling, inputting the moment of inertia or imputing the profile of the element and allowing Abaqus to calculate moment of inertia. \\
+
+\indent A finite element model considers a system and divides it into finite elements and applies material structural properties. The physical response of
+the structure to an applied loading is added to the initial configuration of the structure. Abaqus is a computer software which calculates approximate
+finite element solutions for displacements, deformation, stresses, forces, etc. while maintaining force and momentum equilibrium. The state of the model
+is updated throughout the analysis steps and the effects of the previous step are included in the response of each new step. \\
+\indent By completing a finite element model of the simply supported beams approximate modal responses of the beams will indicate the best locations for
+the sensor package. For the two simply supported beams the modal shapes are trivial, however, the modal response for a complex structure, like the Newport
+bridge, anticipating modal response is near impossible with hand calculations. \\
+\indent Abaqus provides multiple ways to model a particular structure. When modeling the Newport Bridge it will be necessary to use the physical
+properties, such as length and profile, rather than physical properties, such as moment of inertia, to model quickly. To ensure that Abaqus is calculating
+moment of inertia as anticipated, analytical solutions can be compared with the results modal frequencies of the Abaqus model. Abaqus allows for two
+different options of modeling, inputting the moment of inertia or imputing the profile of the element and allowing Abaqus to calculate moment of
+inertia. \\
 
 \section{Beam Analysis}
 \subsection{I Beam Analytical Solution}
-\indent For the analysis of the I beam that was assumed to be aluminum 6160, it was modeled in Abaqus and an analytical solution was found to compare. The analytical solution was calculated using Equation \ref{eqn:FEM_Anal}\\
+\indent For the analysis of the I beam that was assumed to be aluminum 6160, it was modeled in Abaqus and an analytical solution was found to compare. The
+analytical solution was calculated using Equation \ref{eqn:FEM_Anal}\\
 \begin{equation}
 F_{n}=\frac{1}{2\pi}\biggl[\frac{n \pi}{L} \biggr]^{2}\sqrt{[\frac{EI}{\rho}} , n=1,2,3\dots\infty
 \label{eqn:FEM_Anal}
@@ -13,62 +24,80 @@ F_{n}=\frac{1}{2\pi}\biggl[\frac{n \pi}{L} \biggr]^{2}\sqrt{[\frac{EI}{\rho}} , 
 \noindent The inputs for the analytical calculations and the Abaqus model are displayed in Table \ref{tab:FEM_inputs}
 
 \begin{table}
-    \begin{center}
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Parameter}    & \textbf{Value}     \\ \hline
-        Length                & 6.1 m         \\\hline
-        Moment of Inertia Ixx & 2.93e-7 m$^4$ \\\hline
-        Moment of Inertia Iyy & 1.36e-6 m$^4$ \\\hline
-        Modulus of Elasticity & 6x10$^6$GPa      \\\hline
-        \end{tabular}
-        \caption{\textit{Input parameters for analytical and model solutions.}}
-        \label{tab:FEM_inputs}
-    \end{center}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Parameter}    & \textbf{Value}     \\ \hline
+Length                & 6.1 m         \\\hline
+Moment of Inertia Ixx & 2.93e-7 m$^4$ \\\hline
+Moment of Inertia Iyy & 1.36e-6 m$^4$ \\\hline
+Modulus of Elasticity & 6x10$^6$GPa      \\\hline
+\end{tabular}
+\caption{\textit{Input parameters for analytical and model solutions.}}
+\label{tab:FEM_inputs}
+\end{center}
 \end{table}
 
-\indent The frequencies of the analytical solution and the Abaqus model are very close. This is very important to the progression of this project as Abaqus must be trusted to calculate the moment of inertia within the program. \\
-\indent As these frequencies go up above 100 Hz it was anticipated that the sampling frequencies that would be required to properly measure the dynamic response of the beam for the designed sensor package. Analysis was continued with a longer stiffer beam to capture lower frequencies. 
+\indent The frequencies of the analytical solution and the Abaqus model are very close. This is very important to the progression of this project as Abaqus
+must be trusted to calculate the moment of inertia within the program. \\
+\indent As these frequencies go up above 100 Hz it was anticipated that the sampling frequencies that would be required to properly measure the dynamic
+response of the beam for the designed sensor package. Analysis was continued with a longer stiffer beam to capture lower frequencies. 
 
 \subsection{L Beam Analysis}
-\indent For the analysis of the 6.8 meter L beam the beam was modeled two different ways to confirm that Abaqus program to calculating the moment of inertia properly. The beam was modeled as 6.1 meters long, as the supports were 0.2 meters from either end, with a tri axial restriction boundary condition on one side and a vertical restriction boundary condition on the other side. In the initial model an undefined profile was used and the moment of inertia was imputed. In the second model, a preset profile was used and Abaqus calculated the moment of inertia. The results of those models are as follows (Table \ref{tab:FEM_Abaqus_Comp}):\\
+\indent For the analysis of the 6.8 meter L beam the beam was modeled two different ways to confirm that Abaqus program to calculating the moment of
+inertia properly. The beam was modeled as 6.1 meters long, as the supports were 0.2 meters from either end, with a tri axial restriction boundary
+condition on one side and a vertical restriction boundary condition on the other side. In the initial model an undefined profile was used and the moment
+of inertia was imputed. In the second model, a preset profile was used and Abaqus calculated the moment of inertia. The results of those models are as
+follows (Table \ref{tab:FEM_Abaqus_Comp}):\\
 
 \begin{table}[H]
 \begin{center}
-    \begin{tabular}{|l| p{3.5cm}| p{3cm}| p{3cm}| p{3cm}|}
-    \hline
-    \textbf{Mode} & \textbf{Analytical Values} & \textbf{General Profile Abaqus Model Frequency}& \textbf{Input Profile Abaqus Model Frequency} \\\hline
-    1    & 3.1 Hz            & 3.1 Hz                             & 3.1 Hz     \\\hline
-    2    & 12.4 Hz           & 12.5 Hz                            & 12.4 Hz     \\\hline
-    3    & 27.9 Hz           & 27.8 Hz                            & 27.8 Hz     \\\hline
-    4    & 49.6 Hz           & 48.8 Hz                            & 48.6 Hz      \\\hline
-    5    & 77.5 Hz           & 74.5 Hz                            & 74.4 Hz    \\\hline
-    \end{tabular}
-    \caption{\textit{Comparison between Abaqus models}}
-    \label{tab:FEM_Abaqus_Comp}
+\begin{tabular}{|l| p{3.5cm}| p{3cm}| p{3cm}| p{3cm}|}
+\hline
+\textbf{Mode} & \textbf{Analytical Values} & \textbf{General Profile Abaqus Model Frequency}& \textbf{Input Profile Abaqus Model Frequency} \\\hline
+1    & 3.1 Hz            & 3.1 Hz                             & 3.1 Hz     \\\hline
+2    & 12.4 Hz           & 12.5 Hz                            & 12.4 Hz     \\\hline
+3    & 27.9 Hz           & 27.8 Hz                            & 27.8 Hz     \\\hline
+4    & 49.6 Hz           & 48.8 Hz                            & 48.6 Hz      \\\hline
+5    & 77.5 Hz           & 74.5 Hz                            & 74.4 Hz    \\\hline
+\end{tabular}
+\caption{\textit{Comparison between Abaqus models}}
+\label{tab:FEM_Abaqus_Comp}
 \end{center}
 \end{table}
 
 \subsection{Results of Experimental Data}
-\indent Vibration data for the L beam were collected with a microphone, piezoelectric strip, 3g accelerometer to computer, and 6g accelerometer to our sensor package. Vibration frequencies of the angle beam was captured by mounting an accelerometer to the beam and striking the beam. The 3” x 3” aluminum angle beam of 3/16 thickness was placed open end down, with right angle pointing upward, and struck. Configurations varied for supports, strike locations, and accelerometer placement locations. The first test was done using a piezoelectric strip to detect vibration. The second series of tests was done with a 3g accelerometer (anything above acceleration of 3g is clipped). The third series was done with a 6g accelerometer.
-\indent The accelerometer was used to gather vibration data at four different locations. These were at a distance of L/2, L/3, L/4 and L/5 from the angle support, where L is 240” (the length of the supported section of beam).\\
-\indent For each accelerometer position, the beam was struck at distance L/8, L/10 and L/16 from the angle support. During the tests using the accelerometers, the beam was struck gently as to minimize or prevent clipping by exceeding accelerometer range of measurement. The results of the best experimental data are shown in Table \ref{tab:Results_Comp}.\\
+\indent Vibration data for the L beam were collected with a microphone, piezoelectric strip, 3g accelerometer to computer, and 6g accelerometer to our
+sensor package. Vibration frequencies of the angle beam was captured by mounting an accelerometer to the beam and striking the beam. The 3” x 3” aluminum
+angle beam of 3/16 thickness was placed open end down, with right angle pointing upward, and struck. Configurations varied for supports, strike
+locations, and accelerometer placement locations. The first test was done using a piezoelectric strip to detect vibration. The second series of tests was done with a 3g accelerometer (anything above acceleration of 3g is clipped). The third series was done with a 6g accelerometer.
+
+\indent The accelerometer was used to gather vibration data at four different locations. These were at a distance of L/2, L/3, L/4 and L/5 from the angle
+support, where L is 240” (the length of the supported section of beam).\\
+\indent For each accelerometer position, the beam was struck at distance L/8, L/10 and L/16 from the angle support. During the tests using the
+accelerometers, the beam was struck gently as to minimize or prevent clipping by exceeding accelerometer range of measurement. The results of the best
+experimental data are shown in Table \ref{tab:Results_Comp}.\\
 \begin{table}
 \begin{center}
-    \begin{tabular}{|l| p{3.5cm}| p{3cm}| p{3cm}| p{3cm}|}
-    \hline
-    \textbf{Mode} & \textbf{Analytical Values} & \textbf{Values for the generalized profile} & \textbf{Values for the Input profile} & \textbf{Experimental} \\\hline
-    1    & 3.1 Hz            & 3.1 Hz                             & 3.1 Hz                       & 3.2 Hz       \\\hline
-    2    & 12.4 Hz           & 12.5 Hz                            & 12.4 Hz                      & 12.5 Hz      \\\hline
-    3    & 27.9 Hz           & 27.8 Hz                            & 27.8 Hz                      & 27.6 Hz      \\\hline
-    4    & 49.6 Hz           & 48.8 Hz                            & 48.6 Hz                      & 48.4 Hz      \\\hline
-    5    & 77.5 Hz           & 74.5 Hz                            &                             & 78.5 Hz      \\\hline
-    \end{tabular}
-    \caption{\textit{Comparison between analytical, model and experimental results}}
-    \label{tab:Results_Comp}
+\begin{tabular}{|l| p{3.5cm}| p{3cm}| p{3cm}| p{3cm}|}
+\hline
+\textbf{Mode} & \textbf{Analytical Values} & \textbf{Values for the generalized profile} & \textbf{Values for the Input profile} & \textbf{Experimental} \\\hline
+1    & 3.1 Hz            & 3.1 Hz                             & 3.1 Hz                       & 3.2 Hz       \\\hline
+2    & 12.4 Hz           & 12.5 Hz                            & 12.4 Hz                      & 12.5 Hz      \\\hline
+3    & 27.9 Hz           & 27.8 Hz                            & 27.8 Hz                      & 27.6 Hz      \\\hline
+4    & 49.6 Hz           & 48.8 Hz                            & 48.6 Hz                      & 48.4 Hz      \\\hline
+5    & 77.5 Hz           & 74.5 Hz                            &                             & 78.5 Hz      \\\hline
+\end{tabular}
+\caption{\textit{Comparison between analytical, model and experimental results}}
+\label{tab:Results_Comp}
 \end{center}
 \end{table}
 
 \section{Limitations of Abaqus Model}
-\indent Although finite element analysis has enables engineers and scientists gain an understanding of a structure’s behavior and dynamic response, it is very important to know the limitations of finite element modeling. Abaqus must be used as a research tool and not considered the basis of design. Mesh resolution will change the dynamic response and accuracy of the solution. \\
-\indent When modeling within Abaqus and indicating a particular profile, the preset profiles that are available do not match perfectly with the profiles that were used in experiments. As the frequencies resultant for the two different modeling techniques were not considerable different, the error acquired within the dissimilarity cannot be significant and thus negligible by evaluations. \\
+\indent Although finite element analysis has enables engineers and scientists gain an understanding of a structure’s behavior and dynamic response, it is
+very important to know the limitations of finite element modeling. Abaqus must be used as a research tool and not considered the basis of design. Mesh
+resolution will change the dynamic response and accuracy of the solution. \\
+
+\indent When modeling within Abaqus and indicating a particular profile, the preset profiles that are available do not match perfectly with the profiles
+that were used in experiments. As the frequencies resultant for the two different modeling techniques were not considerable different, the error acquired
+within the dissimilarity cannot be significant and thus negligible by evaluations. \\
