@@ -7,22 +7,16 @@ logic and timing needed to be in order. \\
 The first state in the software design is the initialization state.
 Here, the analog to digital converter was initialized through I2C
 communication. The handle of the analog to digital communication
-object was saved for later use in the next state. Next, the GPS
-was initialized with serial communications through a UART port.
-This object was also saved for use in the next state. Once the
+object was saved for later use in the next state. Once the
 initialization state was finished, the application proceeded
 to the sampling state.\\
 
 In this application, 200 Hz was decided to be the target sampling
-rate. Using an external timer, the speed of the clock can be
-handled independently and the microcontroller can wait of the
-timing signal to decide when to take action. In this case, the
-timing signal was sent to the microcontroller, which was waiting
-for its signal. When the signal was received, the application
+rate. The program waited for an interrupt then the system time 
+has reached a user-defined time. When the signal was received, the application
 proceeded to collect data from the peripheral sensors. For
 each sample during the sampling duration, data was collected
-from the ADC via I2C, and the GPS via serial communication.
-The data structure was appended over the sampling entire
+from the ADC via I2C. The data structure was appended over the sampling entire
 sampling period and passed as a return from the state.
 Once the sampling duration was over, the data logging
 state was begun. \\
