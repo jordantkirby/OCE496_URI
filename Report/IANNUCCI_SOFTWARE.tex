@@ -1,0 +1,38 @@
+\section{Software Design}
+The software design controls the timing and data collection for the
+package. The software structure is simple, yet crucial. In order to
+keep the data collected by the package relevant, the software
+logic and timing needed to be in order. \\
+
+The first state in the software design is the initialization state.
+Here, the analog to digital converter was initialized through I2C
+communication. The handle of the analog to digital communication
+object was saved for later use in the next state. Once the
+initialization state was finished, the application proceeded
+to the sampling state.\\
+
+In this application, 200 Hz was decided to be the target sampling
+rate. The program waited for an interrupt then the system time 
+has reached a user-defined time. This is important because every 
+sensor package waited for the same time and they sampled  
+at the same instant (accurate to a millisecond). When the signal was received, 
+the application proceeded to collect data from the peripheral sensors. For
+each sample during the sampling duration, data was collected
+from the ADC via I2C. The data structure was appended over the sampling entire
+sampling period and passed as a return from the state.
+Once the sampling duration was over, the data logging
+state was begun. \\
+
+The data logging state received the data structure created in the
+previous sampling state. This data was then sorted and written to a
+standard comma delimited text file. The file stream was closed
+once all of the data had been written and the program finishes. A
+simple block diagram of this flow can be seen in Figure
+\ref{fig:PRO_SoftFlow} below.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 4in]{"Software flow"}
+\caption{\textit{Software flow of the sensor package}}
+\label{fig:PRO_SoftFlow}
+\end{figure}
