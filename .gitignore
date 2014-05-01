@@ -11,7 +11,6 @@
 *.dvi
 # these rules might exclude image files for figures etc.
 # *.ps
-# *.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
