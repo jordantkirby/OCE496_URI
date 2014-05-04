@@ -180,6 +180,21 @@ variations in the road deck as concentrated loads travel over the bridge.\\
 wind excite the bridge dramatically. After the collapse of the Tacoma Bridge the girder shapes were made to be more stiff with diagonal supports and
 square rather than sharp edged \cite{manoj}. 
 
+\subsubsection{Modelling Technique}
+
+The suspended portion of the Newport Bridge was modeled in three dimensions with an Abaqus input file. 
+The model is made up of nodes and elements. The nodes are coordinates that define the location of the connection points of each element. 
+The elements represent beams or beam segments. In total, 3198 nodes and 8233 elements were used to model the suspended portion of the bridge. 
+This incudes the towers from the concrete base to the top of the towers vertically, and the cables, roadway and truss as far as the roadway is suspended. 
+The cables at either end of the suspended portion and the base of the towers are modeled as fixed in all axes of translation and rotation (encaster).
+The towers are made up of 50 nodes and 62 elements to describe the various sections and connection points. 
+The links and pins connecting towers to the girder (truss under the roadway) consist of 14 nodes and 22 elements. 
+The main cables were modeled using a second order polynomial fit for the center span and a fourth order polynomial fit for the side span. 
+The lower portion of the hanger cables and roadway are described by a second order polynomial fit in the center span and a constant 4.6 \% grade outer span. 
+The cables consist of 148 nodes for the main cables and upper connection points of the hanger cables.
+The lower connection points of the hanger cables are connected to nodes along the truss. The main cables consist of 152 elements 
+
+
 \subsection{Limitations of Abaqus Model}
 
 \indent Although finite element analysis has enables engineers and scientists gain an understanding of a structure's behavior and dynamic response, it is
