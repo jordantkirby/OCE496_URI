@@ -1,0 +1,5 @@
+
+\chapter{Conclusions}
+\indent Over the course of this two phase project a prototype of the sensor package was designed and partially assembled. A finite element model was produced and verified for the Claiborn Pell Bridge.  Development must be done on wireless transmission of data, time-synchronization of data and energy scavenging. It is anticipated that the final sensor package will have a custom PCB designed and fabricated to localize the microprocessor, ADC, accelerometer and GPS to one board.\\
+\indent 
+
