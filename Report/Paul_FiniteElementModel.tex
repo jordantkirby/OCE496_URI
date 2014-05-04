@@ -1,0 +1,143 @@
+\chapter{Finite Element Model (FEM)}
+
+\section{Introduction}
+
+\label{sec:examples}
+
+\subsection{Background of the Claiborne Pell Bridge}
+
+ The Pell Bridge is 10,3471 in total length and has a main span on 1,601 feet making it the 83rd largest suspension bridge in the world. Traffic from Aquidneck Island would otherwise have to drive around the bay through Providence if the Newport Bridge did not exist. The original proposal for the bridge was submitted in 1950 by the designer of the New York City subway system and the Cape Cod Canal, and was approved in 1965. The concrete footings the support the two towers are supported by 838 driven steel piles. At a water depth of 162 feet the foundation created for the Newport Bridge involved the deepest pile driving in the world at this time. To accelerate cutting the tops of the piles, a dive tank was sunk that housed the divers for a weeks at a time. Barges brought prefabricated sections of the bridge to Newport where they were lifted into place; the largest of the sections weighted more than 400 tons and stood 10 stories high. 90,000 cubic yards of concrete were poured into the 52 piers \cite{RIBTA}\\ 
+
+\subsection{Introduction to FEM}
+
+A finite element model analyzes the physical response of a system to dynamic or static loading. The system is divided into finite elements and material structural properties are applied. The physical response of the structure to an applied loading is added to the initial configuration of the structure. Abaqus is a computer software which calculates approximate non linear finite element solutions for displacements, deformation, stresses, forces, etc. . The state of the model is updated throughout the analysis steps and the effects of the previous step are included in the solution to each iteration \cite{Abaqus}. The stiffness matrix and friction between elements are considered in its original state and updated after each iteration. \cite{Manoj}\\
+\indent To verify the software the analysis of a simple system can be completed analytically and compared with the results of the program. For a simply supported beams the modal shapes are trivial, however, the modal response for a complex structure, like the Claiborne Pell Bridge, anticipating modal response is near impossible with analytical solutions. \\
+\indent Abaqus provides multiple ways to model a particular structure. When modeling the Newport Bridge it will be necessary to use the physical properties, such as length and profile, rather than physical properties, such as moment of inertia, to model efficiently. To ensure that Abaqus is calculating moment of inertia as anticipated, analytical solutions can be compared with the results modal frequencies of the Abaqus model. Abaqus allows for two different options of modeling, inputting the moment of inertia or imputing the profile of the element and allowing Abaqus to calculate moment of inertia. \\
+\indent Within a model produced in Abaqus, the removal of members allows for the structural integrity of the structure to be evaluated as an incomplete system. Future construction can be aided by this as the ability to see if a partial structure can support itself. The loss of structural components can be evaluated if lost as well. If a tower were to be damages by a boat or a hanger were to fail, the repercussion could be evaluated. 
+
+\section{Abaqus FEM Verification}
+
+\subsection{L Beam Analysis}
+
+As Abaqus is solving Euler-Bernouli beam theory equations and iterating the solution over a system, if the system is simple the analytical solution can be found by hand. For the modal analysis of the 6.8 meter L beam, the beam was modeled two different ways in Abaqus. This was done to confirm that Abaqus calculates the mode shapes and associated frequencies properly. The analytical solution was calculated using this Equation:
+
+\ref{eqn:FEM_Anal}\\
+
+\begin{equation}
+
+F_{n}=\frac{1}{2\pi}\biggl[\frac{n \pi}{L} \biggr]^{2}\sqrt{[\frac{EI}{\rho}} , n=1,2,3\dots\infty
+
+\label{eqn:FEM_Anal}
+
+\end{equation}
+
+\noindent The inputs for the analytical calculations and the Abaqus model are displayed in Table (Table 
+
+\ref{tab:FEM_Abaqus_Comp}):\\
+
+\indent The beam was modeled in Abaqus as 6.8 meters long, with the supports 0.35 meters from either end. There is a tri axial restriction boundary condition at one end and a vertical restriction boundary condition at the other. For the initial model, an undefined profile was used and the moment of inertia and cross sectional area were input. In the second model, a preset profile was used and Abaqus calculated the moment of inertia. Thickness and outer dimension of the beam were input. A comparison of the results of those models are presented in comparison to the analytical calculation as follows:
+
+(Table \ref{tab:FEM_Abaqus_Comp}):\\
+
+\begin{table}[H]
+
+\begin{center}
+
+ \begin{tabular}{|l| p{3.5cm}| p{3cm}| p{3cm}| p{3cm}|}
+
+ \hline
+
+ \textbf{Mode} & \textbf{Analytical Values} & \textbf{General Profile Abaqus Model Frequency}& 
+
+\textbf{Input Profile Abaqus Model Frequency} \\\hline
+
+ 1 & 3.1 Hz & 3.1 Hz & 3.1 Hz \\\hline
+
+ 2 & 12.4 Hz & 12.5 Hz & 12.4 Hz \\\hline
+
+ 3 & 27.9 Hz & 27.8 Hz & 27.8 Hz \\\hline
+
+ 4 & 49.6 Hz & 48.8 Hz & 48.6 Hz \\\hline
+
+ 5 & 77.5 Hz & 74.5 Hz & 74.4 Hz \\\hline
+
+ \end{tabular}
+
+ \caption{\textit{Comparison between Abaqus models}}
+
+ \label{tab:FEM_Abaqus_Comp}
+
+\end{center}
+
+\end{table}
+
+\indent The frequencies of the analytical solution and the Abaqus model are very close. This is very important to the progression of this project as Abaqus must be trusted to calculate the moment of inertia within the program, translating to correct modal shapes and frequencies. \\
+\indent Analysis of an I beam was done as preliminary model verification and can be found in the Appendix ******. Because the corresponding frequencies for the first 5 modes are more than three orders ofmagnitude larger than that is expected of the Claiborne Bridge (0.155-0.993Hz vs 17.6-230.1Hz), and intenions for the beam were to test accelerometer setups to be used on the bridge, analysis was not continued on the I-beam and the L-beam was introduced. 
+
+\section{Claiborne Pell Bridge Model}
+
+\subsection{Modeling Large Suspension Bridges}
+The complexity and variability of large suspension bridges makes both numerical and experimental methodology very difficult and requires many assumptions. As material and construction technologies advance, so do the length and structural complexity of these structures grow. Monitoring and measuring the structural integrity of these bridges is very important as fatigue is very difficult to measure and quantify. Of the failure endured by steel structures, 80-90\% are related to fatigue \cite{Chan}. Fatigue analysis includes evaluating the distribution of stress in structures.\\
+\indent Long suspension bridges are very flexible and lightly damped structures that are largely impacted by the dynamic loading of cars, wind, and environmental factors. Fatigue damage will result in large infrastructure due long-term cyclic loading in a corrosive environment \cite{Chan,Guo,Li:2003}. As with many bridges that experience extreme season change, the Claiborne Pell Bridge is subject to varying temperature change, snow loading, and salting in addition to the range of other challenges. 
+
+
+\subsection{Modeling Process}
+
+The purpose of the analysis of the model in Abaqus is to understand the bridge behavior during static loading. As the physical properties of the bridge structural elements must be reflected in the model, the method of translating the blueprint in ABAQUS properly is vital to producing accurate results. The main span of the Claiborne Pell Bridge was modeled in MKS (meter, kilogram, second) units. Each of the 8,233 elements were given the appropriate dimension and material properties to reflect the beams and cables the Claiborne Pell Bridge. There are five structural components of a suspension bridge 
+
+which will be discussed in detail:
+
+1. Main cables
+
+2. Towers that support the cable system
+
+3. Hanger Cables
+
+4. Anchor bolts that support the cable system at ends of cable
+
+5. Hanger cables that connect the main cable and the deck
+
+6. Girder 
+
+\subsubsection{Main Cables and Hanger Cables}
+
+Suspension bridges are the lightest bridges per foot made possible because by the weight bearing abilities of the cables which are made of thousands of pencil-thin steel wires. Steel that is stretched into wires can withstand more stress. The tension force applied to the bridge gider are transferred to the main cables through the hangers. The cables are very still and flex very little but need to allow for dynamic loading and vibrations \cite{manoj}. The hanger and main cables are very complicated to model as they must be modeled with the anticipation that after loaded they will accurately represent the physical shape and rigidity of the actual cables. It is now routine to measure the actual initial stresses in the hangers and main cables upon construction to input into Abaqus for Eigenvalue analysis. As initial stress in the hangers and main cable will significantly affect the structural stiffness matrix, K, it is imperative that this value be accurate. The Eigen values were calculated as follows: 
+
+% FIX EQUATION 
+
+\begin{equation}
+
+( 2 \mu[M] + \mu[C] + [K]){\Phi} = 0
+
+\label{eqn:Euler}
+
+\end{equation}
+
+Where [M] is the mass matrix, [C] is the damping matrix, and [K] is the stress matrix, $\mu$ is the 
+
+eigenvalue, and $\Phi$ is the eigenvector \cite{manoj}. 
+
+\subsubsection{Towers}
+
+Made of steel, the towers are subjected to compressive forces induced by the main cables. They need to be sturdy enough to resist buckling, oscillations, and flexing. The materials of towers is typically steel but in appropriate environments, concrete enforced steel is chosen. The current speed, price, appearance, and whether salt water or fresh water is being gaped will depict what material is chosen \cite{manoj}. 
+
+\subsubsection{Anchor Botls}
+
+Anchor piers bear the weight of the main cables and fix them in place. The anchor piers for the Claiborne Pell Bridge are 40x50x100 feet above the MWL and weigh approximately 3,950 tons each. The weight of the anchor piers hold the cables in place. 
+
+\subsubsection{Girder}
+
+The function of the girder is to stiffen the roadway and support the road deck which carries traffic. The girder is very stiff and thus inhibits large variations in the road deck as concentrated loads travel over the bridge.\\ 
+\indent It was the unfavorable trapezoidal shape of the girder that lead to the collapse of the Tacoma Bridge. The span to width ratio and shape allowed wind excite the bridge dramatically. After the collapse of the Tacoma Bridge the girder shapes were made to be more stiff with diagonal supports and square rather than sharp edged \cite{}. 
+
+\subsection{Limitations of Abaqus Model}
+
+\indent Although finite element analysis has enables engineers and scientists gain an understanding of a structure’s behavior and dynamic response, it is very important to know the limitations of finite element modeling. Abaqus must be used as a research tool and not considered the basis of design \cite{Abaqus}. When verifying experimental data, a FEM should not be used for analysis as too many variables that can not be measured or controlled. \\
+\indent In phase one of this project and indicating a particular profile, the preset profiles that are available do not match identically with the profiles that were used in experiments. The taper of the flange and the radius of the angle were not taken into account in the profile provided by Abaqus. As the frequencies resultant for the two different modeling techniques were not considerablely different, the error acquired within the dissimilarity is assumed not to be significant and thus neglected in evaluations. \\
+\indent In phase two of this project, many assumptions and simplifications were made to allow for preliminary modeling. The method of modeling for this semester does not consider mated elements; the entire structure is considered as one highly elastic structure with varying physical properties rather than many different pieced welded or joined with bolts. This affects how the bridge moves as no friction between parts and no weldes are considered. 
+\indent Fatigue damage is local failure mode and occurs most often in welded regions and thus the model should include the detailed welded region connection points. The stress fluctuations are very low so the structure will deform elastically except in the welded regions. Critical locations for fatigue damage can be identified by global stress estimation. As the properties of the bridge elements \cite{manoj}\\
+
+
+  
+
+
