@@ -25,7 +25,7 @@ Assuming $V_{Range}=3.3V$, $n=16$ bits then $V_{Res}$ is approximately $50.35\mu
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{ADC_Comp_Chart}
+\includegraphics[scale=1]{./KIRBY_Images/ADC_Comp_Chart.jpg}
 \caption{\textit{Chart displaying the classifications of different ADC architectures \cite{WaltKester:2005}}}
 \label{fig:ADC_Comp_Chart}
 \end{figure}
@@ -46,11 +46,11 @@ using alternative energy. With this in mind, components used on board the sensor
 \label{sec:adc_in_ch_num}
 \indent One important, but almost overlooked, characteristic of the ADC was the ability to support multiple input channels simultaneously. The ADC needed
 to be able to read three channels from an accelerometer and at least two channels from a strain gauge. For prototyping purposes, it is typically difficult
-to find ADC's with more than 4 inputs; most come in packages that require surface mount technology in order to use. It was decided to address this
-problem by using multiple ADC's and interfacing them simultaneously on a serial communication bus. Subsection \ref{sec:adc_comm} discusses this in
-further detail. It should also be noted that the inputs of the ADC will be configured for differential measurements. This gives the ability to compare
-the sensor data to a noise reference, and thus make it possible to without the need to filter data. %Sentence on surface mounting is awkward.
-
+to find ADC's with more than 4 inputs; most come in as surface mount components and require a printed circuit board. It became evident as the project progressed that each input device would need a dedicated ADC due to the multiplexer switching time of multi-channel ADC units. 
+It was decided to address this problem by interfacing four ADC units simultaneously on a serial communication bus.
+Subsection \ref{sec:adc_comm} discusses this in further detail.
+It should also be noted that the inputs of the ADC were configured for differential measurements.
+This gives the ability to compare the sensor data to a noise reference, and thus make reducing data filtering during processing. 
 %
 \subsubsection{Communication}
 \label{sec:adc_comm}
@@ -61,29 +61,32 @@ Select (SS) line. This puts a limitation on how many ADC's can be used in each s
 addresses for slave selection.
 
 \subsection{Analog-to-Digital Converter Selection}
-\indent When searching for ADC's that fit the parameters set in Section \ref{sec:ADC_Parameters}, two devices were investigated; the TI ADS1211 and TI
-ADS1115. Both devices are summarized in Table \ref{tab:ADC_Compare} and explained in detail below.
+\indent When searching for ADC's that fit the parameters set in Section \ref{sec:ADC_Parameters}, three devices were investigated; the TI ADS1211, TI
+ADS1115 and the TI ADS1113. The devices are summarized in Table \ref{tab:ADC_Compare} and explained in detail below.
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{|p{2.5cm}| p{3cm} | p{3cm} |}
+\begin{tabular}{|p{3cm}| p{3cm} | p{3cm} | p{3cm}|}
 \hline
-&\multicolumn{2}{c|}{\textbf{Analog-Digital Converter}}\\
+&\multicolumn{3}{c|}{\textbf{Analog-Digital Converter}}\\
 \hline
-\textbf{Parameter} & ADS1211 
-\includegraphics[width = 2.5cm]{oldadc}
-& ADS1115
-\includegraphics[width = 2.5cm]{ads1115}\\
+\textbf{Parameter} & ADS1211 & ADS1115 & ADS1113\\
 \hline
-Resolution: & 24 bits & 16 bits\\
+&\includegraphics[width = 2.5cm]{./KIRBY_Images/oldadc}
+&
+\includegraphics[width = 2.5cm]{./KIRBY_Images/ads1115} & \\
 \hline
-Supported Communications:&	 SPI&I$^2$C\\
+Resolution: & 24 bits & 16 bits & 16 bits\\
 \hline
-Power Consumption:&	5mW @ 5V	& 0.66 mW @ 3.3V\\
+Supported Communications:&	 SPI & I$^2$C & I$^2$C \\
+\hline
+Power Consumption:&	5mW @ 5V	& 0.66 mW @ 3.3V & 0.66 mW @ 3.3V\\
+\hline
+Number of Inputs: & 4 & 4 & 1\\
 \hline
 
 \end{tabular}
-\caption{\textit{Comparison table of the ADS1211 and ADS1115 ADC devices}}
+\caption{\textit{Comparison table of the ADS1211, ADS1115 and ADS1113 ADC devices}}
 \label{tab:ADC_Compare}
 \end{center}
 \end{table}
