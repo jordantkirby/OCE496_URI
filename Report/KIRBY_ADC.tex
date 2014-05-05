@@ -105,9 +105,17 @@ tested. The converter functioned correctly for approximately ten minutes and the
 \indent The Texas Instruments ADS1115 16-Bit analog to digital converter is of the same architecture as the ADS1211 ($\Delta \Sigma$). The chip also
 features a multiplexer that allows up to 4 single ended or 2 differential inputs. The sampling frequency of the ADC is programmable from 8Hz to 860Hz, and
 includes an internal oscillator. The average current draw for the ADS1115 is approximately $150\mu A$. There are two notable differences between the
-ADS1115 and the ADS1211 ADC's. First, the ADS1115 communicates via the I$^{2}$C communication protocol. The ADS1115 has four unique I$^{2}$C addresses;
+ADS1115 and the ADS1211 ADCs. First, the ADS1115 communicates via the I$^{2}$C communication protocol. The ADS1115 has four unique I$^{2}$C addresses;
 making it possible to have 16 single-ended inputs on one communication bus. Also, the chip was available pre-mounted on a PCB with all the necessary
 supporting hardware; thus eliminating the possibility of incorrectly wiring up the circuit. 
+\subsubsection{TI ADS1113}
+
+\subsubsection{ADC Testing}
+Preliminary lab tests were performed using a micro-controller with 12-bit ADC to collect data for analysis.
+The time series that was returned did not accurately represent the data present, as verified with an oscilloscope.
+It was determined that this was due to a difference in impedances between the accelerometer and the ADC.
+The solution was to construct an op-amp circuit to match the impedances.
+The ADS1115 has internal op-amps with programmable gain settings to avoid such issues.
+
 \subsubsection{ADC Final Selection}
 \indent Based on the comparison of the ADS1211 and the ADS1115 ADC's, the ADS1115 was chosen because of its ease of use and available Python libraries. 
-%Preliminary lab tests were performed without the ADS1211. A micro-controller with a 12-bit ADC was used to collect data for a quick analysis. The time series that was returned did not accurately represent the data present, as seen on an oscilloscope. It was determined that this was due to a difference in impedances between the accelerometer and the ADC. A solution was to construct an op-amp circuit to match the impedances. The ADS1211 has internal op-amps with programmable gain settings to avoid such an issue.
