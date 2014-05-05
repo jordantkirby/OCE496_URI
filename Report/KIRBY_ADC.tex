@@ -25,7 +25,7 @@ Assuming $V_{Range}=3.3V$, $n=16$ bits then $V_{Res}$ is approximately $50.35\mu
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{ADC_Comp_Chart.png}
+\includegraphics[scale=1]{ADC_Comp_Chart}
 \caption{\textit{Chart displaying the classifications of different ADC architectures \cite{WaltKester:2005}}}
 \label{fig:ADC_Comp_Chart}
 \end{figure}
@@ -109,13 +109,20 @@ ADS1115 and the ADS1211 ADCs. First, the ADS1115 communicates via the I$^{2}$C c
 making it possible to have 16 single-ended inputs on one communication bus. Also, the chip was available pre-mounted on a PCB with all the necessary
 supporting hardware; thus eliminating the possibility of incorrectly wiring up the circuit. 
 \subsubsection{TI ADS1113}
+\label{sec:ADC_ADS1113}
+\indent The TI ADS1113 is within the same family as the ADS1115, only differing in the number of input channels and not having internal programmable gain amplifiers and comparator.
+Like the ADS1115, four ADS1113 units can be on the same I$^{2}$C bus, can also run in continuous sampling mode, and also shares the same library of functions as the ADS1115.
+Since the ADS1113 does not multiplex its inputs, there is no loss of data between switching.
+The dissadvantage to the ADS1113 is that it is only available as a surface mount chip (MSOP-10 package); thus requiring more circuitry on the printed circuit board.
 
-\subsubsection{ADC Testing}
+\subsubsection{ADC Impedance Matching}
 Preliminary lab tests were performed using a micro-controller with 12-bit ADC to collect data for analysis.
 The time series that was returned did not accurately represent the data present, as verified with an oscilloscope.
 It was determined that this was due to a difference in impedances between the accelerometer and the ADC.
 The solution was to construct an op-amp circuit to match the impedances.
-The ADS1115 has internal op-amps with programmable gain settings to avoid such issues.
+It was initially believed that the internal programmable gain amplifiers (PGA) of the ADS1115 would avoid such issues in impedance matching.
+However, after 
 
 \subsubsection{ADC Final Selection}
-\indent Based on the comparison of the ADS1211 and the ADS1115 ADC's, the ADS1115 was chosen because of its ease of use and available Python libraries. 
+\indent Based on the comparison of the ADS1211, ADS1115 and ADS1113 ADC's, the ADS1115 was chosen for the preliminary package to test code before the printed circuit board was designed.
+For the final package, four ADS1113 ADC units were integrated into the PCB design. 
