@@ -14,6 +14,9 @@ The addition of these two requirements greatly increased the complexity of the s
 The voltage input for most systems on the sensor board are a range of voltages between 3.3V-5V.
 This posed a basic issue due to the output voltage of the 12V battery. 
 The solution was to use two LM317 linear voltage regulators.
+It was initially proposed to use the two regulators in series, such that the voltage dropped from 12V to 5V and then to 3.3V.
+However, due to the current rating on the devices, it was decided to use the regulators in parallel and drop the voltage from 12V to 5V and 12V to 3.3V.
+The complete circuit may be found in Figure \ref{fig:Schematic_VoltageReg}.
 The LM317 technical specifications are displayed in Table \ref{tab:LM317} 
 
 \begin{table}[h]
@@ -33,7 +36,9 @@ Package Type				   & TO-220\\
 \label{tab:LM317}
 \end{table}
 
-The output voltage can be set using Equation \ref{eqn:LM317} where $R_1$ and $I_{adj}$ are typically $240\Omega$ and $\le 100\mu A$ respectfully. It should be noted the $V$ is not the input voltage, but a unit placeholder and 
+The output voltage can be set using Equation \ref{eqn:LM317} where $R_1= 240\Omega$ and $I_{adj}\le 100\mu A$.
+It should be noted the $V$ is not the input voltage, but a unit placeholder.
+Since $I_{adj}$ is very low, the error associated with it is almost negligible. 
 \begin{equation}
 V_{out} = 1.25V(1+\frac{R_2}{R_1}) + I_{adj}R_2
 \label{eqn:LM317}
