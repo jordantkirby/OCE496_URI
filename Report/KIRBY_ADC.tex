@@ -122,9 +122,10 @@ The dissadvantage to the ADS1113 is that it is only available as a surface mount
 Preliminary lab tests were performed using a micro-controller with 12-bit ADC to collect data for analysis.
 The time series that was returned did not accurately represent the data present, as verified with an oscilloscope.
 It was determined that this was due to a difference in impedances between the accelerometer and the ADC.
-The solution was to construct an op-amp circuit to match the impedances.
+The solution was to construct an op-amp circuit to match the impedances of the accelerometer and the micro-controller inputs.
 It was initially believed that the internal programmable gain amplifiers (PGA) of the ADS1115 would avoid such issues in impedance matching.
-However, after 
+However, after further research it was discovered that this assumption was incorrect.
+
 
 \subsubsection{ADC Final Selection}
 \indent Based on the comparison of the ADS1211, ADS1115 and ADS1113 ADC's, the ADS1115 was chosen for the preliminary package to test code before the printed circuit board was designed.
