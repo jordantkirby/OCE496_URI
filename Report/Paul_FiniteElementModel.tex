@@ -1,4 +1,4 @@
-\chapter{Finite Element Model (FEM)}
+%\chapter{Finite Element Model (FEM)}
 
 \section{Introduction}
 
@@ -46,11 +46,8 @@ calculates the mode shapes and associated frequencies properly. The analytical s
 \ref{eqn:FEM_Anal}\\
 
 \begin{equation}
-
-F_{n}=\frac{1}{2\pi}\biggl[\frac{n \pi}{L} \biggr]^{2}\sqrt{[\frac{EI}{\rho}} , n=1,2,3\dots\infty
-
+F_{n} = \frac{1}{2\pi} \biggl[ \frac{n \pi}{L} \biggr ]^{2} \sqrt{\frac{EI}{\rho}}, n=1,2,3 \dots \infty
 \label{eqn:FEM_Anal}
-
 \end{equation}
 
 \noindent The inputs for the analytical calculations and the Abaqus model are displayed in Table (Table 
@@ -69,13 +66,11 @@ follows:
 
 \begin{center}
 
-\begin{tabular}{|l| p{3.5cm}| p{3cm}| p{3cm}| p{3cm}|}
+\begin{tabular}{|l| p{4cm}| p{4cm}| p{4.5cm}| p{4.5cm}|}
 
 \hline
 
-\textbf{Mode} & \textbf{Analytical Values} & \textbf{General Profile Abaqus Model Frequency}& 
-
-\textbf{Input Profile Abaqus Model Frequency} \\\hline
+Mode & Analytical Values & General Profile Abaqus Model Frequency&  Input Profile Abaqus Model Frequency \\\hline
 
 1 & 3.1 Hz & 3.1 Hz & 3.1 Hz \\\hline
 
@@ -99,7 +94,7 @@ follows:
 
 \indent The frequencies of the analytical solution and the Abaqus model are very close. This is very important to the progression of this project as
 Abaqus must be trusted to calculate the moment of inertia within the program, translating to correct modal shapes and frequencies. \\
-\indent Analysis of an I beam was done as preliminary model verification and can be found in the Appendix ******. Because the corresponding frequencies
+\indent Analysis of an I beam was done as preliminary model verification and can be found in the \textbf{\textit{Appendix}} ******. Because the corresponding frequencies
 for the first 5 modes are more than three orders of magnitude larger than that is expected of the Claiborne Bridge (0.155-0.993Hz vs 17.6-230.1Hz), and
 intentions for the beam were to test accelerometer setups to be used on the bridge, analysis was not continued on the I-beam and the L-beam was
 introduced. 
@@ -144,16 +139,13 @@ the main cables through the hangers. The cables are very still and flex very lit
 The hanger and main cables are very complicated to model as they must be modeled with the anticipation that after loaded they will accurately represent
 the physical shape and rigidity of the actual cables. It is now routine to measure the actual initial stresses in the hangers and main cables upon
 construction to input into Abaqus for Eigenvalue analysis. As initial stress in the hangers and main cable will significantly affect the structural
-stiffness matrix, K, it is imperative that this value be accurate. The Eigen values were calculated as follows: 
+stiffness matrix, K, it is imperative that this value be accurate. The Eigenvalues were calculated as follows: 
 
 % FIX EQUATION 
 
 \begin{equation}
-
-( 2 \mu[M] + \mu[C] + [K]){\Phi} = 0
-
+( 2 \mu [M] + \mu [C] + [K]) {\Phi} = 0
 \label{eqn:Euler}
-
 \end{equation}
 
 Where [M] is the mass matrix, [C] is the damping matrix, and [K] is the stress matrix, $\mu$ is the 
@@ -180,7 +172,7 @@ variations in the road deck as concentrated loads travel over the bridge.\\
 wind excite the bridge dramatically. After the collapse of the Tacoma Bridge the girder shapes were made to be more stiff with diagonal supports and
 square rather than sharp edged \cite{manoj}. 
 
-\subsubsection{Modelling Technique}
+\subsubsection{Modeling Technique}
 
 The suspended portion of the Newport Bridge was modeled in three dimensions with an Abaqus input file. 
 The model is made up of nodes and elements. The nodes are coordinates that define the location of the connection points of each element. 

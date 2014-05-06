@@ -78,6 +78,9 @@ Charles J. Wesley & Date\\[4ex]
 Samuel D. Wiley & Date\\[4ex]
 \end{tabular}
 
+%Abstract Here
+\include{Paul_Abstract}
+
 \tableofcontents
 \listoffigures
 \listoftables
@@ -88,15 +91,7 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{Phase Two}
 	\section{Layout}
 \chapter{Finite Element Model (FEM)}
-	\section{Introduction}
-		\subsection{Background of Claiborne Pell Bridge}
-		\subsection{Introduction of FEM}
-	\section{Abaqus FEM Verification}
-		\subsection{L Beam Analysis}
-	\section{Claiborne Pell Bridge Model}
-		\subsection{Modeling Large Suspension Bridges}
-		\subsection{Model Process}
-		\subsection{Limitations of Abaqus FEM}
+	\input{Paul_FiniteElementModel}
 
 \chapter{Instrumentation Package}
 	\section{Introduction}
@@ -134,6 +129,7 @@ Samuel D. Wiley & Date\\[4ex]
 \chapter{Data Collection}
 	\section{Phase One Data Collection}
 		\subsection{6g Tri-Axial Accelerometer Data}
+			\input{Paul_DataCollection_6gTri-AxialAccelerometerData}
 	\section{Phase Two Data Collection}
 		\subsection{6g Tri-Axial Accelerometer Data}
 		\subsection{Cell Phone Accelerometer}
@@ -142,8 +138,10 @@ Samuel D. Wiley & Date\\[4ex]
 \chapter{Data Analysis}
 	\section{Phase One Data Analysis}
 		\subsection{Comparison of Preliminary Abaqus Model and Preliminary Data}
+			\input{Paul_DataAnalysis__PhaseOne}
 	\section{Phase Two Data Analysis}
 		\subsection{Comparison of Developed Abaqus Model with Literature}
+			\input{Paul_DataAnalysis_PhaseTwo_AbaqustoLit}
 		\subsection{Comparison of Developed Abaqus Model with Developed Abaqus Model}	
 		
 \chapter{Future Development}
@@ -165,6 +163,7 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{Model Improvements}
 		\subsection{Dynamic Loading}
 \chapter{Conclusion}
+	\input{Paul_Conclusion}
 
 \bibliographystyle{plain}
 \bibliography{./BIB_Files/WILEY_BIB,./BIB_Files/KIRBY_BIB}
