@@ -1,5 +1,5 @@
 \subsubsection{Fabrication of Printed Circuit Board}
-The printed circuit board (PCB) described in Section \label{sec:PCB} was not sent out to be fabricated and "stuffed".
+The printed circuit board (PCB) described in Section \ref{sec:PCB} was not sent out to be fabricated and "stuffed".
 This was because of an incomplete board layout.
 Although all of the component footprints were created for the board, not all traces were laid.
 Since a board was not fabricated, it should be noted that some additions to the board would make it complete.
@@ -9,8 +9,8 @@ The following items should be added to the next revision of the PCB:
 \begin{itemize}
 \item XBee Pro S3B Wireless Receiver
 \item Surface-Mount Passive Components
-\item Breakout Pins
-\item Debugging Items
+\item Breakout Headers
+\item Indicator LEDs
 \end{itemize}
 
 \subparagraph{XBee Pro S3B Wireless Receiver}
@@ -20,4 +20,13 @@ As mentioned in \ref{sec:XBeeFuture}, work needs to be focused on functionality 
 \subparagraph{Surface-Mount Passive Components}
 For the initial design of the PCB, standard through-hole passive components were used for the basic circuits; resistors, capacitors, \textit{etc}.
 This was done so that it would be possible to acid-etch a prototype PCB in-house prior to sending the design to a board house.
-This proved to not be feasible due to the footprint of the MMA7361 accelerometer being a miniature surface mount component (LGA14 package).
+This proved to not be feasible due to the footprints of the MMA7361 accelerometer and ADS1113 ADCs being surface mount components; LGA14 and MSOP-10 packages respectfully.
+For this reason it is no longer constituted to use large, through-hole components.
+\subparagraph{Breakout Headers}
+The BeagleBone Black has 92 user-accessible pins that may be used in future applications/development of the sensor board.
+For this reason, it is proposed that two 2x23 header rows be connected to the header rows that the BeagleBone Black will attach to on the PCB to allow access to all pins. 
+The same could also be done for the XBee Pro S3B and Trimble Copernicus II GPS Receiver for testing and debugging purposes.
+\subparagraph{Indicator LEDs}
+In order to smooth the efforts of debugging, it is suggested that indicator LEDs utilized in great numbers; such that the user/developer may know which systems are receiving power, transmitting data, or in a fault state just by looking at the row of LEDs.
+The power budget has allocations for additional components to be added to the system.
+Typical surface-mount LEDs can range from  3mW to 15mW. 
