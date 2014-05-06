@@ -53,7 +53,8 @@ Also in field use, the package will be subject to a wide range of temperatures t
 As mentioned in Section \ref{sec:ADC_Impedance_Issues}, impedance matching issues were encountered when sampling accelerometer data with the micro-controller.
 To avoid such issues in the final design, an impedance matching op-amp was used.
 The MCP606 op-amp was used due to its rail-to-rail output, low input offset voltage, unity gain stability and low power characteristics. 
-In order to act as a buffer for the input of the ADC, the op-amp was configured as in Figure \ref{fig:op-amp_standard}; where $R_1$ and $R_2$ are governed by the Equation \ref{eqn:op-amp_gain}. Since the op-amp will be used with unity gain (gain = 1) then both resistors are $0\Omega$ and essentially 
+In order to act as a buffer for the input of the ADC, the op-amp was configured as in Figure \ref{fig:op-amp_standard}; where $R_1$ and $R_2$ are governed by the Equation \ref{eqn:op-amp_gain}. 
+Since the op-amp will be used with unity gain (gain = 1) then both resistors are $0\Omega$ and just wired connections \cite{ArtofElectronics}.
 
 \begin{figure}
 \centering
