@@ -13,6 +13,8 @@
 \usepackage{lscape}
 \usepackage{authblk}
 \usepackage{hyperref}
+\usepackage{longtable}
+
 
 %Graphics Path
 \graphicspath{{./MCINTOSH_Images/}{./WILEY_Images/}{./KIRBY_Images/}{./WESLEY_Images/}{./IANNUCCI_Images/}{./BLUM_Images/}{./REGAN_Images/}}
@@ -130,10 +132,11 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{6g Tri-Axial Accelerometer Data}
 			\input{Paul_DataCollection_6gTri-AxialAccelerometerData}
 	\section{Phase Two Data Collection}
-		\subsection{6g Tri-Axial Accelerometer Data}
-		\subsection{Cell Phone Accelerometer}
-		\subsection{Battery Discharge Curve}
-		\subsection{Experimental Observed Efficiency}
+			\input{WESLEY_sixg}
+			\input{WESLEY_cell}
+			\input{WESLEY_battery}
+			\input{WESLEY_solar}
+			\input{WESLEY_wind}
 		
 \chapter{Data Analysis}
 \label{ch:DataAnalysis}
@@ -153,6 +156,7 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{Wireless Transmission}
 			\label{sec:XBeeFuture}
 		\subsection{GPS Time Synchronization}
+			\input{IANNUCCI_TimeSync}
 		\subsection{Package Assembly}
 			\subsubsection{Fabrication of Circuit Board}
 			\subsubsection{Battery Integration}
@@ -169,7 +173,7 @@ Samuel D. Wiley & Date\\[4ex]
 	\input{Paul_Conclusion}
 
 \bibliographystyle{plain}
-\bibliography{./BIB_Files/WILEY_BIB,./BIB_Files/KIRBY_BIB,./BIB_Files/PAUL_BIB,./BIB_Files/IANNUCCI_BIB}
+\bibliography{./BIB_Files/WILEY_BIB,./BIB_Files/KIRBY_BIB,./BIB_Files/PAUL_BIB,./BIB_Files/IANNUCCI_BIB,./BIB_Files/WESLEY_BIB}
 
 \appendix
 
