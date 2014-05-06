@@ -1,5 +1,5 @@
-\section{Time Synchronization}
-\subsection{Problem}
+%\section{Time Synchronization}
+\subsubsection{Problem}
 The BeagleBone Black does not include a Real Time Clock (RTC). This inherently renders the internal clock unusable for reliable timing unless it can
 synchronize with an outside source. For this adjustment there are two options. The first is to synchronize with a network clock using NTP. This is the
 solution used by most laptops to supplement their bundled RTC to achieve increased accuracy. Dependant on the source, the link can provide time accuracy
@@ -9,14 +9,14 @@ of 100 milliseconds of error, which is unlikely \cite{GPSD}. For this design, th
 acceptable range and the lack of an available Wide Area Network (WAN) connection. Using individual GPS devices results in a modular system that
 allows for compatibility with potential mesh networks. 
 
-\subsection{Synchronizing Using GPS}
+\subsubsection{Synchronizing Using GPS}
 While the GPS atomic clock reports reports accuracy to 50 nanoseconds, serial interfaces are much slower with time accuracy to 1 millisecond \cite{GPSD}.
 Thus, a Pulse Per Second (PPS) signal must be used to adjust and calibrate the time. A PPS signal is a high accuracy oscillator used to increase
 inter-device connectivity accuracy \cite{PPS}. With correct support, a PPS is typically accurate to 5 milliseconds \cite{GPSD}. This signal is used to
 adjust and synchronize the system time beyond the capability of serial GPS data. Therefore, several packages using the same PPS capable GPS receiver can
 be adjusted to have the same time to accuracy of less than a millisecond without any inter-package communication.
 
-\subsection{Implementation}
+\subsubsection{Implementation}
 Using a Linux kernel allows for interfacing a PPS signal at a low level. The GPSD program allows for the interfacing NMEA standard GPS devices along with
 PPS support. On Linux systems, GPSD is capable of combing both NMEA sentences and PPS signals \cite{GPSD}. The BeagleBone Black receives the NMEA serial
 messages through a UART connection and the PPS signal through a GPIO pin. the Network Time Protocol Daemon for Linux allows for multiple input sources to
