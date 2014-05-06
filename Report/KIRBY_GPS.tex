@@ -1,8 +1,8 @@
-\subsection{Global Positioning System (GPS) Receiver}
+%\subsection{Global Positioning System (GPS) Receiver}
 \indent The need for an accurately synchronized timing system was present throughout the planning of the sensor package in order to synchronize data from
 multiple sensor packages. The internal clock on the microprocessor board was determined to be unreliable due to inherent errors from low tolerances in CPU
 clock crystals. The use of a GPS receiver as an external timing source was explored \cite{GPSTimeSync}.
-\subsection{GPS Parameters}
+\subsubsection{GPS Parameters}
 \label{sec:GPS_Parameters}
 \indent The following parameters were considered when choosing the GPS receiver for time-synchronization:
 \begin{itemize}
@@ -20,11 +20,11 @@ with the highest power consumption.
 \indent It is proposed for future use that the PPS signal be used for time synchronizing the data between multiple sensor packages.
 
 \paragraph{Communication}
-\label{sec:adc_comm}
+\label{sec:gps_comm}
 \indent Due to the communication protocols that the microprocessor supports, found in Section \ref{sec:uProcessor}, the GPS must support UART, SPI or
 I$^{2}$C communications as inputs.
 
-\subsection{Trimble Copernicus II}
+\subsubsection{Sensor Selection}
 \label{sec:GPS_Trimble}
 \indent The Trimble Copernicus II (Figure \ref{fig:GPS_Copernicus}) is a 12-channel, PCB mounted GPS. The GPS features two serial ports and a 3.0v PPS
 output signal, shown in Figure \ref{fig:GPS_PPS}. The power consumption of the package is approximately $132mW$ at $3V$. This receiver was chosen as a
