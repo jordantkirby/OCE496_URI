@@ -80,20 +80,24 @@ Samuel D. Wiley & Date\\[4ex]
 
 %Abstract Here
 \include{Paul_Abstract}
-
 \tableofcontents
 \listoffigures
 \listoftables
 
 \chapter{Introduction}
+\label{ch:Paper_Introduction}
 	\section{Objectives}
 		\subsection{Phase One}
 		\subsection{Phase Two}
 	\section{Layout}
+		\input{Paul_Introduction_Layout}
+		
 \chapter{Finite Element Model (FEM)}
+\label{ch:FEM}
 	\input{Paul_FiniteElementModel}
 
 \chapter{Instrumentation Package}
+\label{ch:Instrumentation}
 	\section{Introduction}
 	\section{Microprocessor}
 		\subsection{Necessary Specifications}
@@ -127,6 +131,7 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{Battery Selection}
 		
 \chapter{Data Collection}
+\label{ch:DataCollection}
 	\section{Phase One Data Collection}
 		\subsection{6g Tri-Axial Accelerometer Data}
 			\input{Paul_DataCollection_6gTri-AxialAccelerometerData}
@@ -135,7 +140,9 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{Cell Phone Accelerometer}
 		\subsection{Battery Discharge Curve}
 		\subsection{Experimental Observed Efficiency}
+		
 \chapter{Data Analysis}
+\label{ch:DataAnalysis}
 	\section{Phase One Data Analysis}
 		\subsection{Comparison of Preliminary Abaqus Model and Preliminary Data}
 			\input{Paul_DataAnalysis__PhaseOne}
@@ -145,6 +152,7 @@ Samuel D. Wiley & Date\\[4ex]
 		\subsection{Comparison of Developed Abaqus Model with Developed Abaqus Model}	
 		
 \chapter{Future Development}
+\label{ch:FutureDevelopment}
 	\section{Instrumentation}
 		\subsection{Integration of Strain Gauge}
 			\input{WILEY_Strain}
@@ -160,13 +168,14 @@ Samuel D. Wiley & Date\\[4ex]
 			\subsubsection{Package Location}
 				\input{MCINTOSH_PackageLocation}
 	\section{FEM}
-		\subsection{Model Improvements}
-		\subsection{Dynamic Loading}
+		\input{Paul_FutureDevelopments}
+		
 \chapter{Conclusion}
+\label{ch:Collection}
 	\input{Paul_Conclusion}
 
 \bibliographystyle{plain}
-\bibliography{./BIB_Files/WILEY_BIB,./BIB_Files/KIRBY_BIB}
+\bibliography{./BIB_Files/WILEY_BIB,./BIB_Files/KIRBY_BIB,./BIB_Files/PAUL_BIB,./BIB_Files/IANNUCCI_BIB}
 
 \appendix
 

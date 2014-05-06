@@ -40,19 +40,14 @@ be evaluated if lost as well. If a tower were to be damages by a boat or a hange
 
 As Abaqus is solving Euler-Bernoulli beam theory equations and iterating the solution over a system, if the system is simple the analytical solution can be
 found by hand. For the modal analysis of the 6.8 meter L beam, the beam was modeled two different ways in Abaqus. This was done to confirm that Abaqus
-calculates the mode shapes and associated frequencies properly. The analytical solution was calculated using this Equation:
-
-
-\ref{eqn:FEM_Anal}\\
+calculates the mode shapes and associated frequencies properly.
+The analytical solution was calculated using Equation \ref{eqn:FEM_Anal}.
+The inputs for the analytical calculations and the Abaqus model are displayed in Table \ref{tab:FEM_Abaqus_Comp}
 
 \begin{equation}
 F_{n} = \frac{1}{2\pi} \biggl[ \frac{n \pi}{L} \biggr ]^{2} \sqrt{\frac{EI}{\rho}}, n=1,2,3 \dots \infty
 \label{eqn:FEM_Anal}
 \end{equation}
-
-\noindent The inputs for the analytical calculations and the Abaqus model are displayed in Table (Table 
-
-\ref{tab:FEM_Abaqus_Comp}):\\
 
 \indent The beam was modeled in Abaqus as 6.8 meters long, with the supports 0.35 meters from either end. There is a tri-axial restriction boundary
 condition at one end and a vertical restriction boundary condition at the other. For the initial model, an undefined profile was used and the moment of
@@ -60,7 +55,7 @@ inertia and cross sectional area were input. In the second model, a preset profi
 outer dimension of the beam were input. A comparison of the results of those models are presented in comparison to the analytical calculation as
 follows:
 
-(Table \ref{tab:FEM_Abaqus_Comp}):\\
+%(Table \ref{tab:FEM_Abaqus_Comp}):\\ 		%Unnecessary?
 
 \begin{table}[H]
 
@@ -70,7 +65,9 @@ follows:
 
 \hline
 
-Mode & Analytical Values & General Profile Abaqus Model Frequency&  Input Profile Abaqus Model Frequency \\\hline
+Mode & Analytical Values & General Profile Abaqus Model Frequency&  Input Profile Abaqus Model Frequency \\
+
+\hline
 
 1 & 3.1 Hz & 3.1 Hz & 3.1 Hz \\\hline
 
