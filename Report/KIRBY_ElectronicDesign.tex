@@ -75,6 +75,7 @@ To ensure no inductance due to the transmission length between the decoupling ca
 
 
 \subsection{Printed Circuit Board}
+\label{sec:PCB}
 In order to combine the system in an efficient manor, it was decided that a printed circuit board (PCB) must be designed to carry the components.
 This would make future sensor packages easy to manufacture for additional sensor nodes on the bridge and ensures consistency between packages.
 \subsubsection{Requirements for PCB}
@@ -83,10 +84,10 @@ This would allow for the purchase of many off-the-shelf components that would be
 For various reasons, the scope of the PCB was change from being a carrier board to completely integrating all of the components.
 This posed difficulties as many of the components utilized in the package were bought as standalone solutions with dedicated PCBs for each component.
 As a solution for this, all component that shipped with PCBs had all of their circuitry mimicked on the main PCB.
-This holds true for all components except for three; BeagleBone Black, Trimble Copernicus II GPS receiver and the Xbee Pro SB3 wireless receiver.
+This holds true for all components except for three; BeagleBone Black, Trimble Copernicus II GPS receiver and the XBee Pro S3B wireless receiver.
 It was decided that it was more appropriate to create sockets for each of these components to plug into for specific reasons.
 Although the board files for the BeagleBone Black are readily available to download, it was deemed unnecessary to recreate the board.
 For the Trimble Copernicus II GPS receiver, it was decided that because of the sensitivity in the design of the antenna circuit that it would be best to use the off-the-shelf board.
 The board purchased has the antenna circuit integrated with impedance matched SMA connector for the antenna.
-
-\label{sec:PCB}
+Due to unforeseen issues with interfacing the XBee Pro S3B wireless receivers, the receiver was not incorporated in the initial version of the system design.
+Section \ref{sec:XBeeFuture} discusses the future work to be done with the XBee Pro S3B receivers.
