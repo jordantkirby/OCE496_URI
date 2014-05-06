@@ -119,6 +119,7 @@ Since the ADS1113 does not multiplex its inputs, there is no loss of data betwee
 The dissadvantage to the ADS1113 is that it is only available as a surface mount chip (MSOP-10 package); thus requiring more circuitry on the printed circuit board.
 
 \subsubsection{ADC Impedance Matching}
+\label{sec:ADC_Impedance_Issues}
 Preliminary lab tests were performed using a micro-controller with 12-bit ADC to collect data for analysis.
 The time series that was returned did not accurately represent the data present, as verified with an oscilloscope.
 It was determined that this was due to a difference in impedances between the accelerometer and the ADC.
