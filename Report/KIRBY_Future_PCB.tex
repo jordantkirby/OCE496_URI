@@ -1,0 +1,23 @@
+\subsubsection{Fabrication of Printed Circuit Board}
+The printed circuit board (PCB) described in Section \label{sec:PCB} was not sent out to be fabricated and "stuffed".
+This was because of an incomplete board layout.
+Although all of the component footprints were created for the board, not all traces were laid.
+Since a board was not fabricated, it should be noted that some additions to the board would make it complete.
+
+\paragraph{PCB Additions}
+The following items should be added to the next revision of the PCB:
+\begin{itemize}
+\item XBee Pro S3B Wireless Receiver
+\item Surface-Mount Passive Components
+\item Breakout Pins
+\item Debugging Items
+\end{itemize}
+
+\subparagraph{XBee Pro S3B Wireless Receiver}
+The XBee Pro S3B Wireless Receiver (or equivalent) needs to be added to the board in order to transmit data to the base station. 
+The wireless module was not integrated into the initial design of the PCB due to inability to interface with the unit.
+As mentioned in \ref{sec:XBeeFuture}, work needs to be focused on functionality of the wireless data transmission system.
+\subparagraph{Surface-Mount Passive Components}
+For the initial design of the PCB, standard through-hole passive components were used for the basic circuits; resistors, capacitors, \textit{etc}.
+This was done so that it would be possible to acid-etch a prototype PCB in-house prior to sending the design to a board house.
+This proved to not be feasible due to the footprint of the MMA7361 accelerometer being a miniature surface mount component (LGA14 package).
