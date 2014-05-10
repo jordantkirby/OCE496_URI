@@ -4,7 +4,7 @@
 
 \begin{table}
 \centering
-\begin{tabular}{l|l|}\hline
+\begin{tabular}{|l|l|}\hline
 Component & Power Consumption (mW)\\\hline
 Beagle Bone Black & 2300\\\hline
 Analog to Digital Converter & 0.66\\\hline
@@ -12,10 +12,12 @@ GPS & 132\\\hline
 Wireless Transmitter(Anticipated) & 800\\\hline
 Strain Gauge & 95\\\hline
 Accelerometer & 1320\\\hline
-Total Power & 4650
+Total Power & 4650\\
+\hline
 
 \end{tabular}
-\caption{\label{tab:PowerBudget}Time without power production}
+\caption{\textit{Time without power production}}
+\label{tab:PowerBudget}
 \end{table}
 
 \indent After adjusting the power budget to a more conservative value, the package is projected to be a 5 Watt system. By specifying a constant power consumption, an ideal battery capacity can be determined. The power values calculated for each component were under the assumption that the system would run continuously. In the future implementation of a wireless transmitter, a constant current draw of 215 mA was assumed. This value corresponds to a maximum power consumption and does not account for a possible boost in signal. 
@@ -48,7 +50,7 @@ Efficiency Factor=(\frac{Power Rating}{(\frac{1000W}{m^2})})\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{SolarPanel.jpg}
-\caption{SolarPanel}
+\caption{\textit{SolarPanel}}
 \label{fig:SolarPanel}
 \end{figure}
 
@@ -65,6 +67,6 @@ Efficiency Factor=(\frac{Power Rating}{(\frac{1000W}{m^2})})\
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{Battery_Chemistry}
-\caption{Mass and Volume Energy Densities for Various Battery Chemistries}
+\caption{\textit{Mass and Volume Energy Densities for Various Battery Chemistries}}
 \label{fig:Battery_Chemistry}
 \end{figure}
