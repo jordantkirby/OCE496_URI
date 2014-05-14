@@ -13,9 +13,9 @@
 \end{itemize}
 
 \paragraph{Number of Axes}
-\indent The number of axes is regarded as how many directions that acceleration may be measured. Typically accelerometers have at least two axis. For the purposes of the sensor package, three axis were needed.
+\indent The number of axes decides how many directions that acceleration may be measured. Typically accelerometers have at least two axis. For the purposes of the sensor package, three axis were needed.
 \paragraph{Dynamic Range}
-\indent The main limiting factor for determining the proper accelerometer was the dynamic range (DR).  This refers to the range of accelerations that the sensor is capable of measuring. For a 3g accelerometer, the device can measure accelerations up to $3*9.81m/s^{2})$ or$ 29.43 m/s^{2}$.  The value of the dynamic range is found on its corresponding data sheet.  To determine the appropriate accelerometer, the proper DR had to be determined.  This value is a dependent upon three parameters.  The equation for the dynamic range , Equation \ref{eqn:Acc_Accel} below, is dependent on the frequency being sought after and the resulting amplitude.  This equation is derived from the position function, Equation \ref{eqn:Acc_Pos};  
+\indent The main limiting factor for determining the proper accelerometer was the dynamic range (DR).  This refers to the range of accelerations that the sensor is capable of measuring. For a 3g accelerometer, the device can measure accelerations up to $3*9.81m/s^{2})$ (or $ 29.43 m/s^{2}$).  The value of the dynamic range is found on its corresponding data sheet.  To determine the appropriate accelerometer, the proper DR had to be determined.  This value is a dependent upon three parameters.  The equation for the dynamic range, Equation \ref{eqn:Acc_Accel} below, is dependent on the frequency being sought after and the resulting amplitude.  This equation is derived from the position function, Equation \ref{eqn:Acc_Pos};  
 %Latex Code
 \begin{equation}
 u = Ae^{j\omega t}
@@ -30,7 +30,7 @@ u = Ae^{j\omega t}
 \label{eqn:Acc_Accel}
 \end{equation}
 
-\noindent where $u$ is the position, $\ddot{u}$ is acceleration (or in this case the DR), \textit{A} is the displacement, $\omega$ is the measured frequency in radians, and \textit{f} is the frequency in Hertz.  This equation allows one to calculate the allowed maximum displacement before reliable data cannot be measured.  Since the frequency value of the acceleration function is squared, a change in frequency will cause a dramatic change in the maximum allowed amplitude.  Using a maximum frequency of 77.5 Hz (determined analytically by the FEM team) and a 1.5 Hz frequency (a rough representative of the Newport Bridge), the maximum displacement of a structure before unreliable data acquisition occurs was calculated for every accelerometer that was considered.  These values are shown in Table \ref{Acc_Comp_Table}.
+\noindent where $u$ is the position, $\ddot{u}$ is acceleration (or in this case the DR), \textit{A} is the displacement, $\omega$ is the measured frequency in radians, and \textit{f} is the frequency in Hertz.  This equation allows one to calculate the allowed maximum displacement before reliable data cannot be measured.  Since the frequency value of the acceleration function is squared, a change in frequency will cause a dramatic change in the maximum allowed amplitude.  Using a maximum frequency of 77.5 Hz (determined analytically by the FEM team for the simply supported beam) and a 1.5 Hz frequency (a rough representative of the Newport Bridge), the maximum displacement of a structure before unreliable data acquisition occurs was calculated for every accelerometer that was considered.  These values are shown in Table \ref{Acc_Comp_Table}.
 
 \paragraph{Type of Mount}
 \indent Accelerometers can be mounted to a circuit board in one of two manors: through-hole mounting or surface mounting.  An accelerometer with dual inline package (DIP) header pins can be placed directly into a breadboard for prototyping; whereas a surface mount accelerometer needs to be specially soldered to a PCB.
