@@ -7,12 +7,12 @@
 \begin{tabular}{|l|l|}\hline
 Component & Power Consumption (mW)\\\hline
 Beagle Bone Black & 2300\\\hline
-Analog to Digital Converter & 0.66\\\hline
+Analog to Digital Converter & 1\\\hline
 GPS & 132\\\hline
 Wireless Transmitter(Anticipated) & 800\\\hline
 Strain Gauge & 95\\\hline
-Accelerometer & 1320\\\hline
-Total Power & 4650\\
+Accelerometer & 2\\\hline
+Total Power & 3660\\
 \hline
 
 \end{tabular}
@@ -20,18 +20,18 @@ Total Power & 4650\\
 \label{tab:PowerBudget}
 \end{table}
 
-\indent After adjusting the power budget to a more conservative value, the package is projected to be a 5 Watt system. By specifying a constant power consumption, an ideal battery capacity can be determined. The power values calculated for each component were under the assumption that the system would run continuously. In the future implementation of a wireless transmitter, a constant current draw of 215 mA was assumed. This value corresponds to a maximum power consumption and does not account for a possible boost in signal. 
+\indent After adjusting the power budget to a more conservative value, the package is projected to be a 5 watt system. By specifying a constant power consumption, an ideal battery capacity was determined. The power values calculated for each component were under the assumption that the system would run continuously. In the future implementation of a wireless transmitter, a constant current draw of 215 mA was assumed. This value corresponds to a maximum power consumption and does not account for a possible boost in signal. For more accurate power profile, future testing should be completed using the package.
 
 
 \subsection{Package Power}
 
 \subsubsection{Solar Potential}
 
-\indent The design of a sensor package with multiple instruments requires careful planning in order for each piece to work properly and accurately. Creating a package that continuously takes measurements and wirelessly transmits this data raises the question of how to power the system. The package is designed for long term structural health monitoring, making energy storage imperative.  Energy can be scavenged in a number of ways; the popular methods depend on the more abundant natural resources, solar and wind energy. The energy scavenging devices essential to this project are a solar panel, wind turbine, and rechargeable battery system.\\
+\indent The package is designed for long term structural health monitoring, making energy storage imperative.  Energy can be scavenged in a number of ways; the popular methods depend on the more abundant natural resources: solar and wind energy. The energy scavenging devices essential to this project are a solar panel, wind turbine, and rechargeable battery system.\\
 
-\indent The National Oceanic and Atmospheric Administration  is a scientific agency that is a part of the U.S. department of commerce. Through the Earth System Research Laboratory, NOAA offers datasets for various climate properties such as humidity, temperature, cloud coverage, etc. The statistical analysis of hind-cast data is crucial for the design of an energy storage system. NOAA offers data for the downward short wave radiation flux for the past 65 years. These files can be imported into MATLAB and refined for the values relevant to a desired location. The data is recorded for all locations around the world based on the respective longitude and latitude, Newport, Rhode Island is located at latitude (41.5), longitude (-71.3). \\
+\indent The National Oceanic and Atmospheric Administration (NOAA) offers datasets for various climate properties such as humidity, temperature, cloud coverage, etc. The statistical analysis of historical data is crucial for the design of an energy storage system. NOAA offers data for the downward short wave radiation flux for the past 65 years. These files can be imported into MATLAB and refined for the values relevant to a desired location. The data is recorded for all locations around the world based on the respective longitude and latitude, Newport, Rhode Island is located at latitude (41.5), longitude (-71.3). \\
 
-\indent One year of data will show the trend of available sunlight throughout the change of seasons. It is necessary to take into account periods of time with limited sunlight such as an overcast lasting multiple days. In order to account for events of negligible sunlight over the years, solar data from 1994 through 2013 was uploaded. By averaging each daily average value over the last 20 years, a plot of expected solar radiation flux was generated for a given year. Downward short wave radiation flux is a measure of power in units of Watts per square meter, this data is illustrated in the figure below.
+\indent One year of data will show the trend of available sunlight throughout the change of seasons. It is necessary to take into account periods of time with limited sunlight such as an overcast lasting multiple days. In order to account for events of negligible sunlight over the years, solar data from 1994 through 2013 was uploaded. By averaging each daily average value over the last 20 years, a plot of expected solar radiation flux was generated for a given year. Downward short wave radiation flux is a measure of power in units of watts per square meter, this data is illustrated in the figure 3.10.
 
 \begin{figure}[H]
 \centering
