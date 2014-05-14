@@ -3,7 +3,7 @@
 \indent At the core of the sensor package is the microprocessor. The
 microprocessor served as the data collection and distribution
 device. The module received data from the peripheral devices and
-either stored the data for further analysis or distributed it in
+either stores the data for further analysis or distributes it in
 some manner. However, because of both the project requirements
 and the diversity of the sensors, choosing the right
 microprocessor meant looking closely at all of the requirements
@@ -18,8 +18,8 @@ made for embedded applications.
 
 \subsubsection{Timing Accuracy and Synchronization}
 
-\indent Another important area to consider is the ability to time
-synchronize with a central clock. This was also not a concern for
+\indent The ability to time
+synchronize with a central clock was not a concern for
 the prototyping stage this semester but the same board will be used
 for the coming semester. In some way it must be feasible for the
 computer chosen to communicate with a clock source and
@@ -130,7 +130,7 @@ for external triggering if necessary. \\
 \indent The board has a C++/C cross compiler. The System Development
 Knowledge (SDK) is well documented and there are many examples for
 various applications. The Netburner does not run a full operation
-system. Instead, it runs a Real Time Operating System which
+system. It runs a Real Time Operating System which
 handle multitasking with priority levels and cycling. This is
 much preferred to a full operating system for an embedded system
 as it makes timing more precise and the processor more
